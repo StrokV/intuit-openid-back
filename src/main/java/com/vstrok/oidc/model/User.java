@@ -10,23 +10,26 @@ public class User {
         return givenName;
     }
 
-    public void setGivenName(String givenName) {
+    public User setGivenName(String givenName) {
         this.givenName = givenName;
+        return this;
     }
 
     public String getFamilyName() {
         return familyName;
     }
 
-    public void setFamilyName(String familyName) {
+    public User setFamilyName(String familyName) {
         this.familyName = familyName;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
+        return this;
     }
 }

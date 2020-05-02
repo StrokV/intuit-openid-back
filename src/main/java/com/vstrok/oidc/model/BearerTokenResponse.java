@@ -20,40 +20,45 @@ public class BearerTokenResponse {
         return accessToken;
     }
 
-    public void setAccessToken(String accessToken) {
+    public BearerTokenResponse setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+        return this;
     }
 
     public Long getExpiresIn() {
         return expiresIn;
     }
 
-    public void setExpiresIn(Long expiresIn) {
+    public BearerTokenResponse setExpiresIn(Long expiresIn) {
         this.expiresIn = expiresIn;
+        return this;
     }
 
     public String getIdToken() {
         return idToken;
     }
 
-    public void setIdToken(String idToken) {
+    public BearerTokenResponse setIdToken(String idToken) {
         this.idToken = idToken;
+        return this;
     }
 
     public String getRefreshToken() {
         return refreshToken;
     }
 
-    public void setRefreshToken(String refreshToken) {
+    public BearerTokenResponse setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+        return this;
     }
 
     public Long getXRefreshTokenExpiresIn() {
         return xRefreshTokenExpiresIn;
     }
 
-    public void setXRefreshTokenExpiresIn(Long xRefreshTokenExpiresIn) {
+    public BearerTokenResponse setXRefreshTokenExpiresIn(Long xRefreshTokenExpiresIn) {
         this.xRefreshTokenExpiresIn = xRefreshTokenExpiresIn;
+        return this;
     }
 
 }

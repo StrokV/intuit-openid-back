@@ -55,7 +55,7 @@ public class OAuthService {
         }
     }
 
-    public BearerTokenResponse retrieveTokens(String authCode) throws UnsupportedEncodingException {
+    public BearerTokenResponse retrieveTokens(String authCode) {
 
         String requestBody = "grant_type=authorization_code"
                 + "&code=" + authCode
@@ -83,5 +83,9 @@ public class OAuthService {
             return userResponseEntity.getBody();
         }
         return null;
+    }
+
+    void setRestTemplate(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
     }
 }
