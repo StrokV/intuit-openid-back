@@ -3,6 +3,8 @@ package com.vstrok.oidc.web;
 import com.vstrok.oidc.model.BearerTokenResponse;
 import com.vstrok.oidc.service.OAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,11 +32,14 @@ public class SecurityController {
     }
 
     @RequestMapping("/oauth/callback")
-    public void authCallback(@RequestParam("code") String authCode, @RequestParam("state") String state, HttpSession session) throws UnsupportedEncodingException {
+    public void authCallback(@RequestParam("code") String authCode,
+                             @RequestParam("state") String state,
+                             HttpSession session, HttpServletResponse response) throws IOException {
         String csrfToken = String.valueOf(session.getAttribute(CSRF));
         oAuthService.validateState(state, csrfToken);
         BearerTokenResponse bearerTokenResponse = oAuthService.retrieveTokens(authCode);
         persistToSession(session, authCode, bearerTokenResponse);
+        response.sendRedirect("/user/openid");
     }
 
     private void persistToSession(HttpSession session, String authCode, BearerTokenResponse bearerTokenResponse) {

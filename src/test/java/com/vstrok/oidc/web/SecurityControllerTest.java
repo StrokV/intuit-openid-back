@@ -54,7 +54,7 @@ public class SecurityControllerTest {
         HttpSession session = mockMvc.perform(get("/security/oauth/callback")
                 .param("code", authCode)
                 .param("state", "state_value"))
-                .andExpect(status().isOk())
+                .andExpect(status().is3xxRedirection())
                 .andReturn()
                 .getRequest()
                 .getSession();

@@ -34,3 +34,8 @@ out/
 ### rebel ###
 rebel.xml
 rebel*.xml
+
+### react ###
+/node_modules/
+/src/main/webapp/node_modules/
+/src/main/webapp/build/

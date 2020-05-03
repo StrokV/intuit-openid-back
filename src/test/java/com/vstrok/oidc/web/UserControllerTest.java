@@ -34,7 +34,7 @@ public class UserControllerTest {
         doReturn(user).when(oAuthService).retrieveUser(any());
 
         HttpSession session = mockMvc.perform(get("/user/openid"))
-                .andExpect(status().isOk())
+                .andExpect(status().is3xxRedirection())
                 .andReturn()
                 .getRequest()
                 .getSession();
